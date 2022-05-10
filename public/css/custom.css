@@ -1,0 +1,100 @@
+.custom-font{
+    font-family: 'Droid Serif';
+}
+
+
+
+.trending-border{
+    border-bottom: 1px solid #e5e5e5;
+}
+.mb10{
+    margin-bottom: 5px;
+}
+
+.surf-insight{
+    box-shadow: 0px 1px 4px rgb(0 0 0 / 20%);
+    padding:10px;
+}
+
+.post-sm.style-1 {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.rt-post {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+.post-sm.style-1 .post-img {
+    /* border-radius: 50%; */
+    overflow: unset;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100px;
+    /* flex: 0 0 100px; */
+}
+
+.post-sm .post-img {
+    position: relative;
+}
+.rt-post .post-img {
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    border-radius: var(--border-radius-xs);
+    overflow: hidden;
+    position: relative;
+}
+
+.post-sm.style-1 .post-img img {
+    /* width: 100px; */
+    height: 100px;
+    /* border-radius: 5px; */
+}
+
+.rt-post .post-img img {
+    border-radius: var(--border-radius-xs);
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -webkit-transform: scale(1.02);
+    transform: scale(1.02);
+}
+
+
+.rt-post .post-content {
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+.ms-4 {
+    margin-left: 1.5rem!important;
+}
+
+.rt-post-cat-normal {
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .05rem;
+    font-weight: 500;
+    color: var(--color-cat-normal);
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.post-title a, .post-title .title-ex {
+    color: inherit;
+    display: inline;
+    padding-bottom: 0;
+    -webkit-transition: background-size .8s cubic-bezier(.25,.8,.25,1);
+    transition: background-size .8s cubic-bezier(.25,.8,.25,1);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(currentColor),color-stop(98%,currentColor));
+    background-image: linear-gradient(to bottom,currentColor 0%,currentColor 98%);
+    background-size: 0 1px;
+    background-repeat: no-repeat;
+    background-position: left 100%;
+}
+a:link, a:visited, a:focus {
+    text-decoration: none;
+    outline: 0;
+}
