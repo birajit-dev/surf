@@ -12,7 +12,7 @@ router.get('/admin/user/pussyedit/:id', allController.editNews);
 router.post('/admin/user/updatefuckingnews', allController.updateFuckingNews);
 //router.get('/test.html', allController.hellYeah);
 
-router.get('/admin/user/panel_login', allController.adminLogin);
+router.get('/admin/user/ass_login', allController.adminLogin);
 
 router.post('/admin/user/authcheck', allController.authAdmin);
 
