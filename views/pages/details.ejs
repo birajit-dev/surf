@@ -14,21 +14,21 @@
         <title><%= newsUrl.post_name %> - Northeast Surf</title>
         <!--favincon-->
         <!--favincon-->
-        <link rel="apple-touch-icon" sizes="57x57" href="favicons/favicon-apple-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="60x60" href="favicons/favicon-apple-icon-60x60.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="favicons/favicon-apple-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="favicons/favicon-apple-icon-76x76.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="favicons/favicon-apple-icon-114x114.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="favicons/favicon-apple-icon-120x120.png">
-        <link rel="apple-touch-icon" sizes="144x144" href="favicons/favicon-apple-icon-144x144.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="favicons/favicon-apple-icon-152x152.png">
-        <link rel="apple-touch-icon" sizes="180x180" href="favicons/favicon-apple-icon-180x180.png">
-        <link rel="icon" type="image/png" sizes="192x192" href="favicons/favicon-android-icon-192x192.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-favicon-96x96.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="57x57" href="/favicons/favicon-apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/favicons/favicon-apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/favicons/favicon-apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicons/favicon-apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/favicons/favicon-apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/favicons/favicon-apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/favicons/favicon-apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/favicons/favicon-apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicons/favicon-apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192" href="/favicons/favicon-android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-favicon-16x16.png">
         <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-TileImage" content="assets/images/favicon/ms-icon-144x144.png">
+        <meta name="msapplication-TileImage" content="/assets/images/favicon/ms-icon-144x144.png">
         <meta name="theme-color" content="#ffffff">
 
         <!-- Bootstrap, Font Awesome, Aminate, Owl Carausel, Normalize CSS -->
@@ -135,30 +135,28 @@
                         <div class="entry-bottom">
                             <div class="tags-wrap heading">
                                 <span class="tags">
-                                    <a href="#" rel="tag">fashion</a>
+                                    <% //Loading the variable
+                                    var mystr = newsUrl.post_tags;
+                                    
+                                    //Splitting it with : as the separator
+                                    var myarr = mystr.split(",");
+                                    
+                                    //Resulting array structure
+                                    myarr = ['0000000020C90037', 'TEMP', 'data'];
+                                    for(var i = 0; i < myarr.length; i++) { %>
+                                        <li><%= myarr[i] %></li>
+                                      <% } %>
+                                    
+                                    
+
+
                                     <a href="#" rel="tag">lifestyle</a>
                                     <a href="#" rel="tag">news</a>
                                     <a href="#" rel="tag">style</a>
                                 </span>
                             </div>
                         </div>
-                        <div class="box box-author m_b_2rem">
-                            <div class="post-author row-flex">
-                                <div class="author-img">
-                                    <img alt="author avatar" src="assets/images/author-avata-1.jpg" class="avatar">
-                                </div>
-                                <div class="author-content">
-                                <div class="top-author">
-                                    <h5 class="heading-font"><a href="author.html" title="Ryan" rel="author">Ryan Mark</a></h5></div>
-                                    <p class="d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse laoreet ut ligula et semper. Aenean consectetur, est id gravida venenatis.</p>
-                                    <div class="content-social-author">
-                                        <a target="_blank" class="author-social" href="#">Facebook </a>
-                                        <a target="_blank" class="author-social" href="#">Twitter </a>
-                                        <a target="_blank" class="author-social" href="#"> Google + </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </article> <!--entry-content-->
                     
                     <!--Begin post related-->
@@ -229,44 +227,7 @@
                     </div>
                     <!--End post related-->
 
-                    <!--Begin Comment-->
-                    <div class="single-comment comments_wrap">
-                        <section id="comments">
-                           <div class="comments-inner clr">
-                              <div id="respond" class="comment-respond">
-                                 <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
-                                 <form action="#" method="post" id="commentform" class="comment-form" novalidate="">
-                                    <p class="comment-notes">
-                                        <span id="email-notes">Your email address will not be published.</span> Required fields are marked <span class="required">*</span>
-                                    </p>
-                                    <p class="comment-form-comment">
-                                        <label for="comment">Comment</label> 
-                                        <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required="required"></textarea>
-                                    </p>
-                                    <div class="row">
-                                       <div class="comment-form-author col-sm-12 col-md-6">
-                                          <p>
-                                             <label for="author">Name*</label>
-                                             <input id="author" name="author" type="text" value="" size="30" aria-required="true">
-                                          </p>
-                                       </div>
-                                       <div class="comment-form-email col-sm-12 col-md-6">
-                                          <p>
-                                             <label for="email">Email*</label>
-                                             <input id="email" name="email" type="email" value="" size="30" aria-required="true">
-                                          </p>
-                                       </div>
-                                    </div>
-                                    <p class="form-submit">
-                                        <input name="submit" type="submit" id="submit" class="submit btn btn-success btn-block" value="Post Comment">
-                                    </p>
-                                 </form>
-                              </div>
-                              <!-- #respond -->
-                           </div>
-                        </section>
-                    </div>
-                    <!--End Comment-->
+
                 </div> <!--container-->
             </main>
             <footer class="mt-5">
@@ -274,7 +235,7 @@
                     <div class="divider"></div>
                     <div class="row">
                         <div class="col-md-6 copyright text-xs-center">            
-                            <p>Copyright © 2019 Merinda inc. Designed by <a href="https://alithemes.com">AliThemes.com</a></p>
+                            <p>Copyright © 2022 Surf.&trade;</a></p>
                         </div>
                         <div class="col-md-6">           
                             <ul class="social-network inline text-md-right text-sm-center">
