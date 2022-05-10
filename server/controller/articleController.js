@@ -7,7 +7,7 @@ const allPost = require('../model/newsUp');
 
 const { request } = require('express');
 var express = require('express');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const multer = require('multer');
 const { resolve } = require('path');
