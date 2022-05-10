@@ -98,6 +98,10 @@ exports.newsx = async(req, res) =>{
     }
 }
 
+exports.mailCapmgpain = async(req, res) =>{
+    
+}
+
 exports.categoryNews = async(req, res) => {
     try{
     let catName = req.params.cat;
