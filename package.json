@@ -15,5 +15,26 @@
     "params": "^0.1.1",
     "path": "^0.12.7",
     "router": "^1.3.6"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "nesurf",
+  "description": "Northeast Surf News Website.",
+  "version": "1.0.0",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bekarborok/surf.git"
+  },
+  "keywords": [
+    "nesurf"
+  ],
+  "author": "Birajit Debbarma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bekarborok/surf/issues"
+  },
+  "homepage": "https://github.com/bekarborok/surf#readme"
 }
