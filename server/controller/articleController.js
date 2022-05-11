@@ -14,6 +14,15 @@ const { resolve } = require('path');
 const { rejects } = require('assert');
 const { all } = require('express/lib/application');
 
+
+const event = new Date();
+
+const options = {  year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
+
+
+const newDate = event.toLocaleDateString('en-US', options);
+
+
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   };
@@ -21,7 +30,7 @@ function getRandomInt(max) {
 
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/uploads')
+      cb(null, './public/uploads/allimages/')
     },
     filename: function (req, file, cb) {
         const fuckn = getRandomInt(9999);
@@ -77,9 +86,30 @@ exports.fileImage = async(req, res)=>{
 
 exports.homepages = async(req, res) => {
     try{
-        const topstoriesnews  = await topStories.find({post_category:'tripura'}).sort({post_id:-1}).limit('1');
-        const topnational = await topStories.find({'post_category':'tripura'}).sort({post_id:-1}).skip(1).limit('3');
-        res.render('pages/index',{title:'North East Surf', topstoriesnews,topnational});
+        //Top News//
+        const oneTripura = await allPost.find({post_category:'tripura'}).sort({news_id:-1}).limit('1');
+        const oneTrending = await allPost.find({post_topic:'trending'}).sort({news_id:-1}).limit('3');
+        const oneNational = await allPost.find({post_category:'national'}).sort({news_id:-1}).limit('4');
+
+        //Editor Pick//̀
+        const editorPick = await allPost.find({post_editor:'yes'}).sort({news_id:-1}).limit('1');
+
+        //Tripura News//
+        const tripuraNews = await allPost.find({post_category:'tripura'}).sort({news_id:-1}).skip(1).limit('6');
+
+        //Surf Insight//
+        const surfInsight = await allPost.find({ne_insight:'yes'}).sort({news_id:-1}).limit('2');
+
+        //Business//
+        const headlineNow = await allPost.find({post_category:'business'}).sort({news_id:-1}).limit('4');
+
+        //Moset Recent//
+        const recentNews = await allPost.find({}).sort({news_id:-1}).limit('15');
+
+        //Internationa//
+        const internationalNews = await allPost.find({post_category:'business'}).sort({news_id:-1}).limit('10');
+
+        res.render('pages/index',{title:'North East Surf', oneTripura,oneTrending,oneNational,editorPick,tripuraNews,surfInsight,headlineNow,recentNews,internationalNews});
     }
     catch{
         res.status(500).send({message: error.message || "Error in Homepage"});
@@ -90,13 +120,16 @@ exports.newsx = async(req, res) =>{
     try{
         let nUrl = req.params.id;
         let catD = req.params.cate;
-        const newsUrl = await topStories.findOne({post_category:catD,post_url:nUrl});
-        res.render('pages/details',{title:newsUrl.post_name, newsUrl});
+        const newsUrl = await allPost.findOne({post_category:catD,post_url:nUrl});
+        res.render('pages/details',{newsUrl});
     }
     catch{
         res.status(500).send({message: error.message || "Error in Homepage"});
     }
 }
+
+
+
 
 exports.mailCapmgpain = async(req, res) =>{
     
@@ -105,7 +138,7 @@ exports.mailCapmgpain = async(req, res) =>{
 exports.categoryNews = async(req, res) => {
     try{
     let catName = req.params.cat;
-    const catFetch = await topStories.find({post_category:catName});
+    const catFetch = await allPost.find({post_category:catName});
     res.render('pages/category',{title:'North East Surf', catFetch});
     }
     catch{
@@ -228,7 +261,8 @@ exports.upPost = async(req, res)=>{
                 post_topic:topics,
                 post_editor:editor,
                 ne_insight:insight,
-                author:author
+                author:author,
+                update_date:newDate
             });
             upallNews.save();
             res.send('test');
@@ -271,7 +305,8 @@ exports.updateFuckingNews = async(req, res)=>{
             post_topic:topics,
             post_editor:editor,
             ne_insight:insight,
-            author:author
+            author:author,
+            update_date:newDate
         }, function(err, data) {
         if(err){
             res.send('Lui Thor d Gada.');
