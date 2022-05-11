@@ -1,4 +1,5 @@
 
+                <% if(newsUrl != null) { %>
 
 
 
@@ -9,7 +10,7 @@
         <!-- Meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title> - Northeast Surf</title>
+        <title><%= newsUrl.post_name %> - Northeast Surf</title>
         <!--favincon-->
         <!--favincon-->
         <link rel="apple-touch-icon" sizes="57x57" href="/favicons/favicon-apple-icon-57x57.png">
@@ -71,7 +72,7 @@
                     <div class="entry-header">                        
                         <div class="mb-5">
                             <h1 class="entry-title m_b_2rem" style="font-family: Droid Serif;">
-<%- newsUrl.post_name %>                            </h1>
+<%= newsUrl.post_name %></h1>
 <p style="font-family: Droid Serif;"><%- newsUrl.post_summary %></p>
                             <div class="entry-meta align-items-center">
                                 <a class="author-avatar" href="#"><img src="<%= newsUrl.post_image %>" alt=""></a>
@@ -157,17 +158,20 @@
                             <span>Related Posts</span>
                         </h4>
                         <div class="row justify-content-between">
-                             <div class="divider-2"></div>                                    
+                             <div class="divider-2"></div>   
+                             
+                             <% if( rNews != ''){
+                                rNews.forEach(function(dnews, index){ %>
                             <article class="col-md-4">
                                 <div class="mb-3 d-flex row">
-                                    <figure class="col-md-5"><a href="single.html"><img src="assets/images/thumb/thumb-512x512-2.jpg" alt="post-title"></a></figure>
+                                    <figure class="col-md-5"><a href="<%- dnews.post_category %>/<%- dnews.post_url %>"><img src="<%- dnews.post_image %>" alt="post-title"></a></figure>
                                     <div class="entry-content col-md-7 pl-md-0">                                    
-                                        <h5 class="entry-title mb-3"><a href="single.html">Is ‘Interactive Storytelling’ the Future of Media?</a></h5>
+                                        <h5 class="entry-title mb-3"><a href="single.html"><%- dnews.post_name %></a></h5>
                                         <div class="entry-meta align-items-center">
-                                            <a href="author.html">Furukawa</a> in <a href="archive.html">Programing</a><br>                                    
-                                            <span>March 14</span>
+                                            <a href="author.html"><%- dnews.author %></a> in <a href="archive.html">Surf&trade;</a><br>                                    
+                                            <span><%- dnews.update_date %></span>
                                             <span class="middotDivider"></span>
-                                            <span class="readingTime" title="3 min read">6 min read</span>
+                                            <span class="readingTime" title="3 min read">6 min</span>
                                             <span class="svgIcon svgIcon--star">
                                                 <svg class="svgIcon-use" width="15" height="15">
                                                     <path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z"></path>
@@ -177,44 +181,12 @@
                                     </div>
                                 </div>
                             </article>
-                            <article class="col-md-4">
-                                <div class="mb-3 d-flex row">
-                                    <figure class="col-md-5"><a href="single.html"><img src="assets/images/thumb/thumb-512x512-3.jpg" alt="post-title"></a></figure>
-                                    <div class="entry-content col-md-7 pl-md-0">                                    
-                                        <h5 class="entry-title mb-3"><a href="single.html">How NOT to get a $30k bill from Firebase</a></h5>
-                                        <div class="entry-meta align-items-center">
-                                            <a href="author.html">Glorida</a> in <a href="archive.html">Living</a><br>                                    
-                                            <span>April 14</span>
-                                            <span class="middotDivider"></span>
-                                            <span class="readingTime" title="3 min read">7 min read</span>
-                                            <span class="svgIcon svgIcon--star">
-                                                <svg class="svgIcon-use" width="15" height="15">
-                                                    <path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z"></path>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="col-md-4">
-                                <div class="mb-3 d-flex row">
-                                    <figure class="col-md-5"><a href="single.html"><img src="assets/images/thumb/thumb-512x512-4.jpg" alt="post-title"></a></figure>
-                                    <div class="entry-content col-md-7 pl-md-0">                                    
-                                        <h5 class="entry-title mb-3"><a href="single.html">Google Can’t Figure Out What YouTube Is</a></h5>
-                                        <div class="entry-meta align-items-center">
-                                            <a href="author.html">Rayan Mark</a> in <a href="archive.html">GEN</a><br>                                    
-                                            <span>Jun 14</span>
-                                            <span class="middotDivider"></span>
-                                            <span class="readingTime" title="3 min read">8 min read</span>
-                                            <span class="svgIcon svgIcon--star">
-                                                <svg class="svgIcon-use" width="15" height="15">
-                                                    <path d="M7.438 2.324c.034-.099.09-.099.123 0l1.2 3.53a.29.29 0 0 0 .26.19h3.884c.11 0 .127.049.038.111L9.8 8.327a.271.271 0 0 0-.099.291l1.2 3.53c.034.1-.011.131-.098.069l-3.142-2.18a.303.303 0 0 0-.32 0l-3.145 2.182c-.087.06-.132.03-.099-.068l1.2-3.53a.271.271 0 0 0-.098-.292L2.056 6.146c-.087-.06-.071-.112.038-.112h3.884a.29.29 0 0 0 .26-.19l1.2-3.52z"></path>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
+                            <%
+                    })
+                } %>
+                      
+                            
+                            
                         </div>
                     </div>
                     <!--End post related-->
@@ -250,3 +222,8 @@
         <script src="/js/js-scripts.js"></script>
     </body>
 </html>
+
+<% } else { %>
+    No 
+    posts found.
+<% } %>

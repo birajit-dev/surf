@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "aws-sdk": "^2.1132.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.0",
     "dotenv": "^16.0.0",
@@ -10,6 +11,7 @@
     "mongoose-sequence": "^5.3.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.4",
+    "multer-s3": "^2.10.0",
     "mysql": "^2.18.1",
     "nodemon": "^2.0.15",
     "params": "^0.1.1",

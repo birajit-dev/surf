@@ -13,6 +13,8 @@ const multer = require('multer');
 const { resolve } = require('path');
 const { rejects } = require('assert');
 const { all } = require('express/lib/application');
+const multerS3 = require('multer-s3');
+const aws = require('aws-sdk');
 
 
 const event = new Date();
@@ -27,7 +29,10 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
   };
 
+  const fuckn = getRandomInt(9999);
 
+
+/*
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/allimages/')
@@ -41,6 +46,27 @@ var storage = multer.diskStorage({
 var upload = multer({ 
     storage: storage }).single('myFile');
 
+*/
+
+const spacesEndpoint = new aws.Endpoint('fra1.digitaloceanspaces.com');
+const s3 = new aws.S3({
+  endpoint: spacesEndpoint,
+  accessKeyId:'NE3PLL73DAKV4JCDMIJ6',
+  secretAccessKey:'LckPCSCXWERze1XwhvB/GGICWfRcz0WoiYy0LicyYxY'
+});
+
+// Change bucket property to your Space name
+const upload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: 'nesurf',
+    acl: 'public-read',
+    key: function (request, file, cb) {
+      console.log(file);
+      cb(null, fuckn +file.originalname);
+    }
+  })
+}).single('myFile', 1);
 
 //ImageUp//
 exports.upImage = async(req, res) =>{
@@ -121,7 +147,10 @@ exports.newsx = async(req, res) =>{
         let nUrl = req.params.id;
         let catD = req.params.cate;
         const newsUrl = await allPost.findOne({post_category:catD,post_url:nUrl});
-        res.render('pages/details',{newsUrl});
+        const rNews = await allPost.find({}).sort({news_id:-1}).limit('3');
+
+        res.render('pages/details',{newsUrl,rNews});
+
     }
     catch{
         res.status(500).send({message: error.message || "Error in Homepage"});
@@ -246,7 +275,11 @@ exports.upPost = async(req, res)=>{
             res.send('Fuck You Bitch');
         }else{
             //console.log(req.file);
-            const file = req.file.filename;
+            const filex = req.file.originalname;
+            const nFile = fuckn +filex;
+            const urlp = "https://media.northeastsurf.com/";
+            const aFile = urlp +nFile;
+
             const {name, url, summary, mytextarea, keyword, description, category, tags, topics, editor, insight, author } = req.body;
             let upallNews = new allPost({
                 post_name: name,
@@ -256,7 +289,7 @@ exports.upPost = async(req, res)=>{
                 post_keyword:keyword,
                 meta_description:description,
                 post_category:category,
-                post_image:file,
+                post_image:aFile,
                 meta_tags:tags,
                 post_topic:topics,
                 post_editor:editor,
@@ -315,6 +348,4 @@ exports.updateFuckingNews = async(req, res)=>{
             res.send('samwng cakha gada.');
         }
         });
-
-
 }
