@@ -133,7 +133,7 @@ exports.homepages = async(req, res) => {
         const recentNews = await allPost.find({}).sort({news_id:-1}).limit('15');
 
         //Internationa//
-        const internationalNews = await allPost.find({post_category:'business'}).sort({news_id:-1}).limit('10');
+        const internationalNews = await allPost.find({post_category:'internation'}).sort({news_id:-1}).limit('10');
 
         res.render('pages/index',{title:'North East Surf', oneTripura,oneTrending,oneNational,editorPick,tripuraNews,surfInsight,headlineNow,recentNews,internationalNews});
     }
