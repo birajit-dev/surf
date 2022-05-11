@@ -1,6 +1,4 @@
-<% if(newsUrl != ''){
 
-        %> 
 
 
 
@@ -11,7 +9,7 @@
         <!-- Meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><%= newsUrl.post_name %> - Northeast Surf</title>
+        <title> - Northeast Surf</title>
         <!--favincon-->
         <!--favincon-->
         <link rel="apple-touch-icon" sizes="57x57" href="/favicons/favicon-apple-icon-57x57.png">
@@ -73,12 +71,12 @@
                     <div class="entry-header">                        
                         <div class="mb-5">
                             <h1 class="entry-title m_b_2rem" style="font-family: Droid Serif;">
-<%= newsUrl.post_name %>                            </h1>
-<p style="font-family: Droid Serif;">This is a subheading which will be occur when applying and post of the product and so on so on there must be a challenge all go on.</p>
+<%- newsUrl.post_name %>                            </h1>
+<p style="font-family: Droid Serif;"><%- newsUrl.post_summary %></p>
                             <div class="entry-meta align-items-center">
                                 <a class="author-avatar" href="#"><img src="<%= newsUrl.post_image %>" alt=""></a>
-                                <a href="#"><%= newsUrl.post_author %></a> in <a href="/">NE Surf</a><br>                                    
-                                <span><%= newsUrl.post_date %></span>
+                                <a href="#"><%= newsUrl.author %></a> in <a href="/">Surf&trade;</a><br>                                    
+                                <span><%= newsUrl.update_date %></span>
                                 <span class="middotDivider"></span>
                                 <span class="readingTime" title="3 min read">3 min read</span>
                                 <span class="svgIcon svgIcon--star">
@@ -136,23 +134,17 @@
                             <div class="tags-wrap heading">
                                 <span class="tags">
                                     <% //Loading the variable
-                                    var mystr = newsUrl.post_tags;
+                                    var mystr = newsUrl.meta_tags;
                                     
                                     //Splitting it with : as the separator
                                     var myarr = mystr.split(",");
                                     
                                     //Resulting array structure
-                                    myarr = ['0000000020C90037', 'TEMP', 'data'];
+                                    //myarr = ['0000000020C90037', 'TEMP', 'data'];
                                     for(var i = 0; i < myarr.length; i++) { %>
-                                        <li><%= myarr[i] %></li>
+                                        <a href="#" rel="tag"><%= myarr[i] %></a>
+
                                       <% } %>
-                                    
-                                    
-
-
-                                    <a href="#" rel="tag">lifestyle</a>
-                                    <a href="#" rel="tag">news</a>
-                                    <a href="#" rel="tag">style</a>
                                 </span>
                             </div>
                         </div>
@@ -258,4 +250,3 @@
         <script src="/js/js-scripts.js"></script>
     </body>
 </html>
-<% } %>
