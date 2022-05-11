@@ -46,6 +46,7 @@ const followUser = new mongoose.Schema({
     author:{
         type:String
     }
+    
 
 });
 
