@@ -148,7 +148,6 @@ exports.newsx = async(req, res) =>{
         let catD = req.params.cate;
         const newsUrl = await allPost.findOne({post_category:catD,post_url:nUrl});
         const rNews = await allPost.find({}).sort({news_id:-1}).limit('3');
-
         res.render('pages/details',{newsUrl,rNews});
 
     }

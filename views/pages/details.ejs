@@ -1,9 +1,4 @@
-
-                <% if(newsUrl != null) { %>
-
-
-
-
+<% if(newsUrl != null) { %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -73,7 +68,7 @@
                         <div class="mb-5">
                             <h1 class="entry-title m_b_2rem" style="font-family: Droid Serif;">
 <%= newsUrl.post_name %></h1>
-<p style="font-family: Droid Serif;"><%- newsUrl.post_summary %></p>
+<p style="font-family: Droid Serif;color: #6b6b6b;margin-top: -20px;"><%- newsUrl.post_summary %></p>
                             <div class="entry-meta align-items-center">
                                 <a class="author-avatar" href="#"><img src="<%= newsUrl.post_image %>" alt=""></a>
                                 <a href="#"><%= newsUrl.author %></a> in <a href="/">Surf&trade;</a><br>                                    
@@ -166,9 +161,9 @@
                                 <div class="mb-3 d-flex row">
                                     <figure class="col-md-5"><a href="<%- dnews.post_category %>/<%- dnews.post_url %>"><img src="<%- dnews.post_image %>" alt="post-title"></a></figure>
                                     <div class="entry-content col-md-7 pl-md-0">                                    
-                                        <h5 class="entry-title mb-3"><a href="single.html"><%- dnews.post_name %></a></h5>
+                                        <h5 class="entry-title mb-3"><a href="/<%- dnews.post_category %>/<%- dnews.post_url %>"><%- dnews.post_name %></a></h5>
                                         <div class="entry-meta align-items-center">
-                                            <a href="author.html"><%- dnews.author %></a> in <a href="archive.html">Surf&trade;</a><br>                                    
+                                            <a href="#"><%- dnews.author %></a> in <a href="#">Surf&trade;</a><br>                                    
                                             <span><%- dnews.update_date %></span>
                                             <span class="middotDivider"></span>
                                             <span class="readingTime" title="3 min read">6 min</span>
