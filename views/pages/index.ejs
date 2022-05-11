@@ -55,7 +55,9 @@
         });
         </script>
 
-<link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+        <%- include('alltags.ejs'); %> 
+
 
 
     </head>
@@ -310,7 +312,7 @@
                         surfInsight.forEach(function(insight, index){ %>
                     <div class="col-sm-12 col-md-6">
                         <article class="first mb-3 surf-insight">
-                            <figure><a href="<%- insight.post_category %>/<%- insight.post_url %>"><img src="<%- insight.post_image %>" alt="post-title"></a></figure>
+                            <figure><a href="<%- insight.post_category %>/<%- insight.post_url %>"><img src="<%- insight.post_image %>" alt="post-title" style="height: 250px;width: 100%;"></a></figure>
                             <h3 class="entry-title mb-3 custom-font"><a href="<%- insight.post_category %>/<%- insight.post_url %>"><%- insight.post_name %></a></h3>
                         </article>
                     </div>
@@ -351,7 +353,7 @@
 
                                     <div class="col-sm-12 col-md-3">
                                         <article class="first mb-3">
-                                            <figure><a href="<%- headline.post_category %>/<%- headline.post_url %>"><img src="<%- headline.post_image %>" alt="post-title"></a></figure>
+                                            <figure><a href="<%- headline.post_category %>/<%- headline.post_url %>"><img src="<%- headline.post_image %>" alt="post-title" style="height:150px"></a></figure>
                                             <h5 class="entry-title mb-3 custom-font"><a href="<%- headline.post_category %>/<%- headline.post_url %>"><%- headline.post_name %></a></h5>
                                             <div class="entry-excerpt">
                                                 <p class="custom-font" style="color:black;">
@@ -472,25 +474,8 @@
 
                 
             </main>
-            <footer class="mt-5">
-                <div class="container">
-                    <div class="divider"></div>
-                    <div class="row">
-                        <div class="col-md-6 copyright text-xs-center">            
-                            <p class="custom-font" style="font-size: 16px;">&copy; 2022 Northeast Surf.&trade;</p>
-                        </div>
-                        <div class="col-md-6">           
-                            <ul class="social-network inline text-md-right text-sm-center">
-                                <li class="list-inline-item"><a href="#"><i class="icon-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="icon-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="icon-google"></i></a></li>
+            <%- include('footer.ejs'); %> 
 
-                                <li class="list-inline-item"><a href="#"><i class="icon-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </footer>
         </div> <!--#wrapper-->
 
         <a href="#" class="back-to-top heading"><i class="icon-left-open-big"></i><span class="d-lg-inline d-md-none">Top</span></a>

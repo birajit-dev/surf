@@ -167,7 +167,7 @@ exports.categoryNews = async(req, res) => {
     try{
     let catName = req.params.cat;
     const catFetch = await allPost.find({post_category:catName});
-    res.render('pages/category',{title:'North East Surf', catFetch});
+    res.render('pages/category',{title:'North East Surf', catFetch,catName});
     }
     catch{
 
@@ -347,4 +347,8 @@ exports.updateFuckingNews = async(req, res)=>{
             res.send('samwng cakha gada.');
         }
         });
+}
+
+exports.erPage = async(req, res)=>{
+    res.render('pages/error');
 }

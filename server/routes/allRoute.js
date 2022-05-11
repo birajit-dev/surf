@@ -40,6 +40,8 @@ router.post('/admin/user/follower', allController.allSubscriber);
 
 router.post('/admin/user/postnews', allController.upPost);
 
+router.get('/en/in/404', allController.erPage);
+
 
 
 //router.get('/bitch/that/data', allController.authAdmin);

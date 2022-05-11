@@ -57,7 +57,9 @@
         });
         </script>
 
-<link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+        <link href='https://fonts.googleapis.com/css?family=Droid Serif' rel='stylesheet'>
+        <%- include('alltags.ejs'); %> 
+
     </head>
     <body class="single">
         <div class="top-scroll-bar"></div>
@@ -70,7 +72,7 @@
 <%= newsUrl.post_name %></h1>
 <p style="font-family: Droid Serif;color: #6b6b6b;margin-top: -20px;"><%- newsUrl.post_summary %></p>
                             <div class="entry-meta align-items-center">
-                                <a class="author-avatar" href="#"><img src="<%= newsUrl.post_image %>" alt=""></a>
+                                <a class="author-avatar" href="#"><img src="" alt=""></a>
                                 <a href="#"><%= newsUrl.author %></a> in <a href="/">Surf&trade;</a><br>                                    
                                 <span><%= newsUrl.update_date %></span>
                                 <span class="middotDivider"></span>
@@ -81,11 +83,13 @@
                                     </svg>
                                 </span>
                             </div>
+                            
                         </div>
+                        <figure class="image zoom mb-5">
+                            <img src="<%= newsUrl.post_image %>" alt="post-title" style="justify-content: center;width: 100%;" />
+                        </figure>  <!--figure-->
                     </div> <!--end single header-->
-                    <figure class="image zoom mb-5">
-                        <img src="<%= newsUrl.post_image %>" alt="post-title" style="justify-content: center;" />
-                    </figure>  <!--figure-->
+                    
                     <article class="entry-wraper mb-5">
                         <div class="entry-left-col">
                             <div class="social-sticky">
@@ -186,23 +190,8 @@
 
                 </div> <!--container-->
             </main>
-            <footer class="mt-5">
-                <div class="container">
-                    <div class="divider"></div>
-                    <div class="row">
-                        <div class="col-md-6 copyright text-xs-center">            
-                            <p>Copyright © 2022 Surf.&trade;</a></p>
-                        </div>
-                        <div class="col-md-6">           
-                            <ul class="social-network inline text-md-right text-sm-center">
-                                <li class="list-inline-item"><a href="#"><i class="icon-facebook"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="icon-twitter"></i></a></li>
-                                <li class="list-inline-item"><a href="#"><i class="icon-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>
-            </footer>
+            <%- include('footer.ejs'); %> 
+
         </div> <!--#wrapper-->
 
         <a href="#" class="back-to-top heading"><i class="icon-left-open-big"></i><span  class="d-lg-inline d-md-none">Top</span></a>
@@ -216,6 +205,6 @@
 </html>
 
 <% } else { %>
-    No 
-    posts found.
+    <script>location.replace("/en/in/404")
+    </script>
 <% } %>

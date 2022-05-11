@@ -41,7 +41,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use('/', routes);
 app.use('*', (req, res) => {
-    res.status(404).send('<h1>404! Page not found</h1>');
+    res.status(404).redirect('/en/in/404');
   });
 
 
