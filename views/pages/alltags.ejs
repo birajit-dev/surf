@@ -33,5 +33,9 @@
   // Enabling the debug mode flag is useful during implementation,
   // but it's recommended you remove it for production
   mixpanel.init('5ed303eab66a1862ef6bc4a00487f53d', {debug: true}); 
-  mixpanel.track('Sign up');
+  mixpanel.track('Sign Up', {
+    'source': "Pat's affiliate site",
+    'Opted out of email': true,
+  });
+  
   </script>
