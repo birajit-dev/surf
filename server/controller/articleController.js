@@ -158,8 +158,6 @@ exports.newsx = async(req, res) =>{
 }
 
 
-
-
 exports.mailCapmgpain = async(req, res) =>{
     
 }
@@ -167,7 +165,7 @@ exports.mailCapmgpain = async(req, res) =>{
 exports.categoryNews = async(req, res) => {
     try{
     let catName = req.params.cat;
-    const catFetch = await allPost.find({post_category:catName});
+    const catFetch = await allPost.find({post_category:catName}).sort({news_id:-1});
     const pk = await allKey.findOne({page_category:catName});
     res.render('pages/category',{title:'North East Surf', catFetch,catName,pk});
     }
