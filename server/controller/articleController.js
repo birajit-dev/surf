@@ -93,18 +93,19 @@ exports.allSubscriber = async(req, res) =>{
         mail_user: mail_user
     });
     await allMail.save();
-    res.redirect('/fuckregistered');
+    res.redirect('/en/in/mailsubscribe');
 }
 
-exports.mailPage = async(req, res) =>{
-    res.render('pages/follow');
+//Thank You//
+exports.thankYou = async(req, res)=>{
+    res.render('pages/thankyou');
 }
 
 
 
-exports.fileImage = async(req, res)=>{
-    res.render('pages/upload');
-}
+
+
+
 
 
 

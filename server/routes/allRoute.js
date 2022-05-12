@@ -32,11 +32,10 @@ router.get('/admin/user/allmedia', allController.mediaAdmin);
 
 router.post('/admin/user/postimage', allController.upImage);
 
-router.get('/admin/user/uploadx', allController.fileImage);
+router.post('/mail/user/subscribe', allController.allSubscriber);
+router.get('/en/in/mailsubscribe', allController.thankYou);
 
-router.get('/admin/user/subscriber', allController.mailPage);
 
-router.post('/admin/user/follower', allController.allSubscriber);
 
 router.post('/admin/user/postnews', allController.upPost);
 
