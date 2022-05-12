@@ -4,7 +4,16 @@
         <!-- Meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Northeast Surf | Tripura Fastest Growing</title>
+        <title><%= catName %> | Northeast Surf</title>
+
+        <% if(pk != null) { %>
+        <meta name="keywords" content="<%- pk.page_keyword %>" />
+        <meta name="news_keywords" content="<%- pk.page_keyword %>" />
+        <meta name="description" content="<%- pk.page_summary %>" />
+        <link rel="canonical" href="https://northeastsurf.com/" />
+        <% } %>
+
+
         <!--favincon-->
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">

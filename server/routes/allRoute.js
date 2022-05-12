@@ -44,5 +44,6 @@ router.get('/en/in/404', allController.erPage);
 
 
 
+
 //router.get('/bitch/that/data', allController.authAdmin);
 module.exports = router;

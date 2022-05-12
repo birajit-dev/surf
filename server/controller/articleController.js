@@ -4,6 +4,7 @@ const adminData =  require('../model/loginAdmin');
 const singleUp = require('../model/imageUp');
 const followers = require('../model/subscriber');
 const allPost = require('../model/newsUp');
+const allKey = require('../model/keywordC');
 
 const { request } = require('express');
 var express = require('express');
@@ -167,7 +168,8 @@ exports.categoryNews = async(req, res) => {
     try{
     let catName = req.params.cat;
     const catFetch = await allPost.find({post_category:catName});
-    res.render('pages/category',{title:'North East Surf', catFetch,catName});
+    const pk = await allKey.findOne({page_category:catName});
+    res.render('pages/category',{title:'North East Surf', catFetch,catName,pk});
     }
     catch{
 

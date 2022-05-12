@@ -9,22 +9,120 @@
         <!--favincon-->
         <!--favincon-->
         <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
+        <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <meta name="keywords" content="<%= newsUrl.post_keyword %>" />
+        <meta name="news_keywords" content="<%= newsUrl.post_keyword %>" />
+        <meta name="description" content="<%= newsUrl.meta_description %>" />
+        <link rel="canonical" href="https://northeastsurf.com/" />
+        <meta name="revised" content="<%= newsUrl.author %>, <%= newsUrl.update_date %>">
+        <meta name="author" content="<%= newsUrl.author %>">
+        <meta property="og:locale" content="en_us" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="<%= newsUrl.post_name %>" />
+        <meta property="og:description" content="<%= newsUrl.meta_description %>" />
+        <meta property="og:url" content="https://northeastsurf.com/<%= newsUrl.post_category %>/<%= newsUrl.post_url %>" />
+        <meta property="og:image" content="<%= newsUrl.post_image %>" />
+        <meta property="og:image:alt" content="<%= newsUrl.post_name %>" />
+        <meta property="og:image:width" content="1600">
+        <meta property="og:image:height" content="900">
+        <meta property="og:site_name" content="Northeast Surf" />
+        <meta name="tweetmeme-title" content="<%= newsUrl.post_name %>" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@innesurf" />
+        <meta name="twitter:creator" content="@innesurf" />
+        <meta name="twitter:url" content="https://northeastsurf.com/<%= newsUrl.post_category %>/<%= newsUrl.post_url %>" />
+        <meta name="twitter:title" content="<%= newsUrl.post_name %>" />
+        <meta name="twitter:description" content="<%= newsUrl.meta_description %>" />
+        <meta name="twitter:image" content="<%= newsUrl.post_image %>" />
+        <meta name="twitter:image:alt" content="<%= newsUrl.post_name %>" />
+        <meta property="article:published_time" content="<%= newsUrl.update_date %>" />
+        <meta property="article:modified_time" content="<%= newsUrl.update_date %>" />
+        <meta property="fb:pages" content="103529045681976" />
+        <meta itemprop="name" content="<%= newsUrl.post_name %> | Northeast Surf">
+        <meta itemprop="description" content="<%= newsUrl.meta_description %>">
+        <meta itemprop="image" content="<%= newsUrl.post_image %>">
+
+        <script type="application/ld+json">
+        {
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+        "@id": "https://northeastsurf.com/",
+        "name": "Home"
+        }
+        },
+        {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+        "@id": "https://northeastsurf.com/tripura/",
+        "name": "Tripura news"
+        }
+        }
+        ,{
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+        "name": "<%= newsUrl.post_name %>"
+        }
+        }
+        ]
+        }
+        </script>
+
+
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "<%= newsUrl.post_name %>",
+        "description": "<%= newsUrl.meta_description %>",
+        "keywords": "<%= newsUrl.post_keyword %>",
+        "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": "[<%= newsUrl.meta_description %>]"
+        },
+        "url": "https://northeastsurf.com/<%= newsUrl.post_category %>/<%= newsUrl.post_url %>"
+        }
+        </script>
+
+        <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "NewsArticle",
+        "url": "https://northeastsurf.com/<%= newsUrl.post_category %>/<%= newsUrl.post_url %>",
+        "publisher":{
+            "@type":"Northeast Surf",
+            "name":"<%= newsUrl.author %>",
+            "logo":"https://northeastsurf.com/logo.png"
+        },
+        "headline": "<%= newsUrl.post_name %>",
+        "mainEntityOfPage": "https://northeastsurf.com/<%= newsUrl.post_category %>/<%= newsUrl.post_url %>",
+        "articleBody": "<%= newsUrl.meta_description %>",
+        "image":"<%= newsUrl.post_image %>",
+        "datePublished":"<%= newsUrl.update_date %>"
+        }
+        </script>
+
 
         <!-- Bootstrap, Font Awesome, Aminate, Owl Carausel, Normalize CSS -->
         <link href="/css/css-bootstrap.css" rel="stylesheet">
@@ -87,7 +185,7 @@
                             
                         </div>
                         <figure class="image zoom mb-5">
-                            <img src="<%= newsUrl.post_image %>" alt="post-title" style="justify-content: center;width: 100%;" />
+                            <img src="<%= newsUrl.post_image %>" alt="<%= newsUrl.post_name %>" style="justify-content: center;width: 100%;" />
                         </figure>  <!--figure-->
                     </div> <!--end single header-->
                     
@@ -161,7 +259,7 @@
                                 rNews.forEach(function(dnews, index){ %>
                             <article class="col-md-4">
                                 <div class="mb-3 d-flex row">
-                                    <figure class="col-md-5"><a href="<%- dnews.post_category %>/<%- dnews.post_url %>"><img src="<%- dnews.post_image %>" alt="post-title"></a></figure>
+                                    <figure class="col-md-5"><a href="<%- dnews.post_category %>/<%- dnews.post_url %>"><img src="<%- dnews.post_image %>" alt="<%- dnews.post_name %>"></a></figure>
                                     <div class="entry-content col-md-7 pl-md-0">                                    
                                         <h5 class="entry-title mb-3"><a href="/<%- dnews.post_category %>/<%- dnews.post_url %>"><%- dnews.post_name %></a></h5>
                                         <div class="entry-meta align-items-center">
