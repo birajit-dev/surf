@@ -4,7 +4,7 @@
         <!-- Meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><%= catName %> | Northeast Surf</title>
+        <title><%= catName.charAt(0).toUpperCase() + catName.slice(1) %> | Northeast Surf</title>
 
         <% if(pk != null) { %>
         <meta name="keywords" content="<%- pk.page_keyword %>" />
