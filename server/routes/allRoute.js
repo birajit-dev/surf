@@ -41,6 +41,8 @@ router.post('/admin/user/postnews', allController.upPost);
 
 router.get('/en/in/404', allController.erPage);
 
+router.get('/feed/rss/gnews/tripura', allController.rssTripura);
+
 
 
 

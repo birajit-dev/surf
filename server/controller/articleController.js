@@ -16,6 +16,8 @@ const { rejects } = require('assert');
 const { all } = require('express/lib/application');
 const multerS3 = require('multer-s3');
 const aws = require('aws-sdk');
+var rss = require('rss');
+
 
 
 const event = new Date();
@@ -353,3 +355,42 @@ exports.updateFuckingNews = async(req, res)=>{
 exports.erPage = async(req, res)=>{
     res.render('pages/error');
 }
+
+
+//--------------------------- RSS Feed ---------------------//
+exports.rssTripura = async(req, res)=> {
+  
+    // Fetch 10 published posts from data store (mongodb in my case) 
+    // sorted by creation date.
+    const rssF = await allPost.find({post_category:'tripura'}).sort({news_id:-1}).limit(10);
+      
+          // Fields are stored straight forward within my mongodb
+          // collection. Just as a note: The blog style permalink 
+          // is created with "urlifying" the subject on creation time
+          // and adding date fragments with momentjs
+        var feed = new rss({
+            title: 'Tripura | Northeast Surf',
+              description: 'Tripura Latest News, Agartala News, Kokborok News, Northeast News',
+              url: 'http://northeastsurf.com/',
+              author: 'Birajit Debbarma',
+              date: '24/05/2022'
+        })
+        for(const rssfeed of rssF){
+          feed.item({
+              title: rssfeed.post_name,
+              description: rssfeed.post_summary,
+              url: 'http://northeastsurf.com/' + rssfeed.post_category + '/'+ rssfeed.post_url,
+              image_url: rssfeed.post_image,
+              author: rssfeed.author,
+              date: rssfeed.update_date
+          });      
+        }   
+    
+        // Set content type header and send xml response. 
+        // Note: res.type() uses mimetype definition as a base. 
+        // As an alternative you may explicitly use res.set(): 
+        // res.set('Content-Type', 'application/rss+xml');
+        res.type('rss');
+        res.send(feed.xml());
+}
+    
