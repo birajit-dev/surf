@@ -22,8 +22,7 @@ var rss = require('rss');
 
 const event = new Date();
 
-const options = {  year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' };
-
+const options = {  year: 'numeric', month: 'short', day: 'numeric' };
 
 const newDate = event.toLocaleDateString('en-US', options);
 
