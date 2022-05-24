@@ -358,3 +358,6 @@ exports.erPage = async(req, res)=>{
 
 //--------------------------- RSS Feed ---------------------//
     
+exports.kokDictionary = async(req, res)=>{
+    res.render('pages/kokborok');
+}

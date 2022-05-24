@@ -42,6 +42,10 @@ router.post('/admin/user/postnews', allController.upPost);
 router.get('/en/in/404', allController.erPage);
 
 
+//----- Kokborok Dictionary --//
+router.get('/dictionary/kokborok/ke',allController.kokDictionary);
+
+
 
 
 
