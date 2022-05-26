@@ -5,6 +5,8 @@ const singleUp = require('../model/imageUp');
 const followers = require('../model/subscriber');
 const allPost = require('../model/newsUp');
 const allKey = require('../model/keywordC');
+const teerKey = require('../model/teerModel');
+const counterTeer = require('../model/teerUpdate');
 
 const { request } = require('express');
 var express = require('express');
@@ -101,16 +103,6 @@ exports.allSubscriber = async(req, res) =>{
 exports.thankYou = async(req, res)=>{
     res.render('pages/thankyou');
 }
-
-
-
-
-
-
-
-
-
-
 
 
 exports.homepages = async(req, res) => {
@@ -212,7 +204,7 @@ exports.authAdmin = async(req, res) => {
         //req.session.authA = username;
         //var fuckingA = req.session.authA;
         //session.userid=user.username;
-        res.redirect('/admin/user/dashboard');
+        res.redirect('/admin/user/fucknews');
     }
 }
 
@@ -361,3 +353,80 @@ exports.erPage = async(req, res)=>{
 exports.kokDictionary = async(req, res)=>{
     res.render('pages/kokborok');
 }
+
+
+//Result Update Post Method//
+exports.teerUpload  = async(req, res)=>{
+
+            const {teer_name, url, mytextarea, teer_description, teer_keyword, teer_tags, teer_category} = req.body;
+            let teerUp = new teerKey({
+                teer_name: teer_name,
+                teer_permalink: url,
+                teer_content: mytextarea,
+                teer_description: teer_description,
+                teer_keyword:teer_keyword,
+                teer_tags:teer_tags,
+                teer_category:teer_category,
+                teer_date:newDate,
+            });
+            await teerUp.save();
+            res.send('Teer Result Update');
+}
+
+exports.teerDashboard = async(req, res)=>{
+    sex = req.session;
+    if(!sex.userid){
+        res.redirect('/admin/user/ass_login');
+    }else{
+        res.render('pages/fuckingpanel/teerdashboard');
+    }   
+}
+exports.teerDetails = async(req, res)=>{
+    try{
+        let nUrl = req.params.id;
+        const teerdata = await teerKey.findOne({teer_permalink:nUrl});
+        const teerRelated = await teerKey.find({}).sort({teer_id:-1}).limit('3');
+        res.render('pages/teerdetails',{teerdata,teerRelated});
+
+    }
+    catch{
+        res.status(500).send({message: error.message || "Error in Homepage"});
+    }
+}
+exports.teerCategory = async(req, res)=>{
+    try{
+        const tcFetch = await teerKey.find({}).sort({teer_id:-1});
+        const resultDay = await counterTeer.findOne({counter_id:1});
+        res.render('pages/teercategory',{title:'North East Surf', tcFetch, resultDay});
+        }
+        catch{
+            
+        }
+}
+
+
+exports.counterUp = async(req, res)=>{
+    const {id,counter_date, shillong_first, shillong_second, khanapara_first, khanapara_second} = req.body;
+    counterTeer.findByIdAndUpdate(id,{
+        counter_date: counter_date,
+        shillong_first: shillong_first,
+        shillong_second: shillong_second,
+        khanapara_first: khanapara_first,
+        khanapara_second: khanapara_second
+    }, function(err, data){
+        if(err){
+            res.send('Something Went Wrong');
+        }
+        else{
+            res.redirect('/admin/user/teer/counter/edit/teer/1');
+        }
+    });
+}
+
+
+exports.counterPage = async(req, res)=>{
+        let counterId = req.params.id;
+        const cdT = await counterTeer.findOne({counter_id:counterId});
+        res.render('pages/fuckingpanel/counterupdate',{cdT});
+}
+

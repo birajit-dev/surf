@@ -39,11 +39,29 @@ router.get('/en/in/mailsubscribe', allController.thankYou);
 
 router.post('/admin/user/postnews', allController.upPost);
 
+router.get('/admin/user/ass_teer', allController.teerDashboard);
+
+//Teer Details//
+router.get('/teer/result/2022/:id', allController.teerDetails);
+
+router.post('/admin/user/teerupload', allController.teerUpload);
+
+
+router.get('/teer/result/today/', allController.teerCategory);
+
+router.get('/admin/user/teer/counter/edit/teer/:id', allController.counterPage);
+
+router.post('/admin/user/teercounterupdate', allController.counterUp);
+
+
 router.get('/en/in/404', allController.erPage);
 
 
+
+
+
 //----- Kokborok Dictionary --//
-router.get('/dictionary/kokborok/ke',allController.kokDictionary);
+router.get('/dictionary/kokborok/ke', allController.kokDictionary);
 
 
 
