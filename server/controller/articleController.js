@@ -7,6 +7,7 @@ const allPost = require('../model/newsUp');
 const allKey = require('../model/keywordC');
 const teerKey = require('../model/teerModel');
 const counterTeer = require('../model/teerUpdate');
+const engDic = require('../model/dictionaryModel');
 
 const { request } = require('express');
 var express = require('express');
@@ -430,3 +431,24 @@ exports.counterPage = async(req, res)=>{
         res.render('pages/fuckingpanel/counterupdate',{cdT});
 }
 
+
+
+exports.englishWord = async(req, res)=>{
+        try{
+        let enName = req.params.en;
+        const dicR = await engDic.findOne({english_word:enName});
+        res.render('pages/kokborok',{title:'English to Kokborok Dictionary: Northeast Surf', dicR});
+        }
+        catch{
+    
+        }   
+}
+
+exports.validDic = async(req, res)=>{
+    const {engword} = req.body;
+    res.redirect('/en/'+ engword +'');
+}
+
+exports.indexDictionary = async(req, res)=>{
+    res.render('pages/englishdictionary');
+}
