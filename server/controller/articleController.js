@@ -37,13 +37,12 @@ function getRandomInt(max) {
   const fuckn = getRandomInt(9999);
 
 
-/*
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, './public/uploads/allimages/')
     },
     filename: function (req, file, cb) {
-        const fuckn = getRandomInt(9999);
+      //const fuckn = getRandomInt(9999);
       cb(null, fuckn +file.originalname)
     }
   })
@@ -51,27 +50,27 @@ var storage = multer.diskStorage({
 var upload = multer({ 
     storage: storage }).single('myFile');
 
-*/
 
-const spacesEndpoint = new aws.Endpoint('fra1.digitaloceanspaces.com');
-const s3 = new aws.S3({
-  endpoint: spacesEndpoint,
-  accessKeyId:'NE3PLL73DAKV4JCDMIJ6',
-  secretAccessKey:'LckPCSCXWERze1XwhvB/GGICWfRcz0WoiYy0LicyYxY'
-});
 
-// Change bucket property to your Space name
-const upload = multer({
-  storage: multerS3({
-    s3: s3,
-    bucket: 'nesurf',
-    acl: 'public-read',
-    key: function (request, file, cb) {
-      console.log(file);
-      cb(null, fuckn +file.originalname);
-    }
-  })
-}).single('myFile', 1);
+// const spacesEndpoint = new aws.Endpoint('fra1.digitaloceanspaces.com');
+// const s3 = new aws.S3({
+//   endpoint: spacesEndpoint,
+//   accessKeyId:'NE3PLL73DAKV4JCDMIJ6',
+//   secretAccessKey:'LckPCSCXWERze1XwhvB/GGICWfRcz0WoiYy0LicyYxY'
+// });
+
+// // Change bucket property to your Space name
+// const upload = multer({
+//   storage: multerS3({
+//     s3: s3,
+//     bucket: 'nesurf',
+//     acl: 'public-read',
+//     key: function (request, file, cb) {
+//       console.log(file);
+//       cb(null, fuckn +file.originalname);
+//     }
+//   })
+// }).single('myFile', 1);
 
 //ImageUp//
 exports.upImage = async(req, res) =>{
@@ -271,7 +270,7 @@ exports.upPost = async(req, res)=>{
             //console.log(req.file);
             const filex = req.file.originalname;
             const nFile = fuckn +filex;
-            const urlp = "https://media.northeastsurf.com/";
+            const urlp = "";
             const aFile = urlp +nFile;
 
             const {name, url, summary, mytextarea, keyword, description, category, tags, topics, editor, insight, author } = req.body;

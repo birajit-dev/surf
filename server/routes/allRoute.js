@@ -4,7 +4,7 @@ const router = express.Router();
 const allController = require('../controller/articleController');
 const sessions = require('express-session');
 
-/*
+
 router.get('/', allController.homepages);
 router.get('/:cate/:id', allController.newsx);
 router.get('/:cat', allController.categoryNews);
@@ -52,7 +52,7 @@ router.get('/admin/user/teer/counter/edit/teer/:id', allController.counterPage);
 
 router.post('/admin/user/teercounterupdate', allController.counterUp);
 
-*/
+
 router.get('/en/in/404', allController.erPage);
 
 
@@ -60,12 +60,12 @@ router.get('/en/in/404', allController.erPage);
 
 
 //----- Kokborok Dictionary --//
-router.get('/', allController.indexDictionary);
-router.get('/en/:en', allController.englishWord);
-router.post('/en/dvalid', allController.validDic);
+//router.get('/', allController.indexDictionary);
+// router.get('/en/:en', allController.englishWord);
+// router.post('/en/dvalid', allController.validDic);
 
-router.post('/mail/user/subscribe', allController.allSubscriber);
-router.get('/en/in/mailsubscribe', allController.thankYou);
+// router.post('/mail/user/subscribe', allController.allSubscriber);
+// router.get('/en/in/mailsubscribe', allController.thankYou);
 
 
 
