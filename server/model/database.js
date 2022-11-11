@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-mongoose.connect("mongodb://localhost:27017/neheraldnews", {
+mongoose.connect("mongodb://localhost:27017/neherald", {
    useNewUrlParser: true,
    useUnifiedTopology: true
 });
